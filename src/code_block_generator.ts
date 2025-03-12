@@ -69,7 +69,7 @@ export class CodeBlockGenerator {
 
     let header = `> ### [${linkMetadata.title}](${linkMetadata.url})`;
     if (linkMetadata.favicon) {
-      header = `> ### [![favicon](${linkMetadata.favicon})${linkMetadata.title}](${linkMetadata.url})`
+      header = `> ### [![favicon](${linkMetadata.favicon})${linkMetadata.title}](${linkMetadata.url})`;
     }
     calloutTexts.push(header);
 
@@ -78,9 +78,10 @@ export class CodeBlockGenerator {
     }
 
     if (linkMetadata.host) {
-      calloutTexts.push(`>\n> [${linkMetadata.host}](https://${linkMetadata.host})`);
+      calloutTexts.push(`>
+> [${linkMetadata.host}](https://${linkMetadata.host})`);
     }
-      
+
     return calloutTexts.join("\n") + "\n";
   }
 
