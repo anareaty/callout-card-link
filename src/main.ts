@@ -16,7 +16,6 @@ export default class ObsidianAutoCardLink extends Plugin {
 
   async onload() {
     await this.loadSettings();
-    
     /*this.registerMarkdownCodeBlockProcessor("cardlink", async (source, el) => {
       const processor = new CodeBlockProcessor(this.app);
       await processor.run(source, el);
