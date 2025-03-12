@@ -6,7 +6,7 @@ on:
       - "*"
 
 env:
-  PLUGIN_NAME: auto-card-link
+  PLUGIN_NAME: callout-card-link
 
 jobs:
   build:
