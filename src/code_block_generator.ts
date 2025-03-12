@@ -47,6 +47,7 @@ export class CodeBlockGenerator {
   }
 
   genCodeBlock(linkMetadata: LinkMetadata): string {
+    /*
     const codeBlockTexts = ["\n```cardlink"];
     codeBlockTexts.push(`url: ${linkMetadata.url}`);
     codeBlockTexts.push(`title: "${linkMetadata.title}"`);
@@ -57,7 +58,30 @@ export class CodeBlockGenerator {
       codeBlockTexts.push(`favicon: ${linkMetadata.favicon}`);
     if (linkMetadata.image) codeBlockTexts.push(`image: ${linkMetadata.image}`);
     codeBlockTexts.push("```\n");
-    return codeBlockTexts.join("\n");
+
+    */
+
+    let titleLink = `[](${linkMetadata.url})`
+    if (linkMetadata.image) {
+      titleLink = `[![](${linkMetadata.image})](${linkMetadata.url})`
+    }
+    let calloutTexts = [`\n> [!card-link] ${titleLink}`]
+
+    let header = `> ### [${linkMetadata.title}](${linkMetadata.url})`
+    if (linkMetadata.favicon) {
+      header = `> ### [![favicon](${linkMetadata.favicon})${linkMetadata.title}](${linkMetadata.url})`
+    }
+    calloutTexts.push(header)
+
+    if (linkMetadata.description) {
+      calloutTexts.push(`> ${linkMetadata.description}`)
+    }
+
+    if (linkMetadata.host) {
+      calloutTexts.push(`>\n> [${linkMetadata.host}](https://${linkMetadata.host})`)
+    }
+      
+    return calloutTexts.join("\n") + "\n";
   }
 
   private async fetchLinkMetadata(
