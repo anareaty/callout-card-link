@@ -63,9 +63,14 @@ export class LinkMetadataParser {
   }
 
   private async getFavicon(): Promise<string | undefined> {
-    const favicon = this.htmlDoc
+    let favicon = this.htmlDoc
       .querySelector("link[rel='icon']")
       ?.getAttr("href");
+    if (!favicon) {
+      favicon = this.htmlDoc
+      .querySelector("link[rel='shortcut icon']")
+      ?.getAttr("href");
+    }
     if (favicon) return await this.fixImageUrl(favicon);
   }
 
