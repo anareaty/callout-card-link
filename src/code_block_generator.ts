@@ -61,24 +61,24 @@ export class CodeBlockGenerator {
 
     */
 
-    let titleLink = `[](${linkMetadata.url})`
+    let titleLink = `[](${linkMetadata.url})`;
     if (linkMetadata.image) {
-      titleLink = `[![](${linkMetadata.image})](${linkMetadata.url})`
+      titleLink = `[![](${linkMetadata.image})](${linkMetadata.url})`;
     }
-    let calloutTexts = [`\n> [!card-link] ${titleLink}`]
+    const calloutTexts = [`\n> [!card-link] ${titleLink}`];
 
-    let header = `> ### [${linkMetadata.title}](${linkMetadata.url})`
+    let header = `> ### [${linkMetadata.title}](${linkMetadata.url})`;
     if (linkMetadata.favicon) {
       header = `> ### [![favicon](${linkMetadata.favicon})${linkMetadata.title}](${linkMetadata.url})`
     }
-    calloutTexts.push(header)
+    calloutTexts.push(header);
 
     if (linkMetadata.description) {
-      calloutTexts.push(`> ${linkMetadata.description}`)
+      calloutTexts.push(`> ${linkMetadata.description}`);
     }
 
     if (linkMetadata.host) {
-      calloutTexts.push(`>\n> [${linkMetadata.host}](https://${linkMetadata.host})`)
+      calloutTexts.push(`>\n> [${linkMetadata.host}](https://${linkMetadata.host})`);
     }
       
     return calloutTexts.join("\n") + "\n";
