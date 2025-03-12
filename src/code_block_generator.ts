@@ -47,20 +47,6 @@ export class CodeBlockGenerator {
   }
 
   genCodeBlock(linkMetadata: LinkMetadata): string {
-    /*
-    const codeBlockTexts = ["\n```cardlink"];
-    codeBlockTexts.push(`url: ${linkMetadata.url}`);
-    codeBlockTexts.push(`title: "${linkMetadata.title}"`);
-    if (linkMetadata.description)
-      codeBlockTexts.push(`description: "${linkMetadata.description}"`);
-    if (linkMetadata.host) codeBlockTexts.push(`host: ${linkMetadata.host}`);
-    if (linkMetadata.favicon)
-      codeBlockTexts.push(`favicon: ${linkMetadata.favicon}`);
-    if (linkMetadata.image) codeBlockTexts.push(`image: ${linkMetadata.image}`);
-    codeBlockTexts.push("```\n");
-
-    */
-
     let titleLink = `[](${linkMetadata.url})`;
     if (linkMetadata.image) {
       titleLink = `[![](${linkMetadata.image})](${linkMetadata.url})`;
